@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ArrowLeft, Mail, Phone } from "lucide-react";
-import accountImage from "../assets/loginImg.jpg";
 
 const Account = () => {
   const [method, setMethod] = useState("phone");
@@ -19,33 +18,29 @@ const Account = () => {
   };
 
   return (
-    <section className="account-page">
-      <div className="account-card">
-        <div className="account-visual">
-          <img
-            src={accountImage}
-            alt="Elegant ethnic fashion"
-            loading="lazy"
-            className="account-visual-img"
-          />
-        </div>
-
-        <div className="account-panel">
-          <div className="account-form-wrap">
-            <div className="account-heading">
-              <p className="account-eyebrow">
-                Welcome To CLO
-              </p>
-              <h2>
-                {step === "details" ? "Sign in or sign up" : "Verify account"}
+    <section className="min-h-screen bg-[#f7f2eb] px-4 py-10 md:px-8">
+      <div className="mx-auto max-w-2xl overflow-hidden rounded-2xl bg-white shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
+        {/* FORM SECTION */}
+        <div className="flex items-center justify-center p-6 md:p-12">
+          <div className="w-full max-w-md">
+            {/* HEADING */}
+            <div className="mb-8">
+              <h2 className="mb-2 text-center text-3xl font-semibold text-black">
+                {step === "details" ? "Sign in" : "Verify account"}
               </h2>
             </div>
 
-            <div className="account-methods">
+            {/* METHOD BUTTONS */}
+            <div className="mb-8 grid grid-cols-2 gap-3">
               <button
                 type="button"
                 onClick={() => switchMethod("phone")}
-                className={`account-method ${isPhone ? "is-active" : ""}`}>
+                className={`flex h-12 items-center justify-center gap-2 rounded-md border text-sm font-medium transition-all duration-300 ${
+                  isPhone
+                    ? "border-black bg-black text-white"
+                    : "border-gray-200 bg-white text-black hover:border-black"
+                }`}
+              >
                 <Phone size={18} />
                 Phone
               </button>
@@ -53,97 +48,125 @@ const Account = () => {
               <button
                 type="button"
                 onClick={() => switchMethod("email")}
-                className={`account-method ${!isPhone ? "is-active" : ""}`}>
+                className={`flex h-12 items-center justify-center gap-2 rounded-md border text-sm font-medium transition-all duration-300 ${
+                  !isPhone
+                    ? "border-black bg-black text-white"
+                    : "border-gray-200 bg-white text-black hover:border-black"
+                }`}
+              >
                 <Mail size={18} />
                 Email
               </button>
             </div>
 
+            {/* DETAILS FORM */}
             {step === "details" ? (
-              <form onSubmit={handleSubmit} className="account-form">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 {isPhone ? (
-                  <div className="account-field">
+                  <div>
                     <label
-                      htmlFor="phone">
-                      Mobile number
+                      htmlFor="phone"
+                      className="mb-2 block text-sm font-medium text-black"
+                    >
+                      Mobile Number
                     </label>
-                    <div className="account-phone-input">
-                      <div className="account-phone-code">
+
+                    <div className="flex h-12 overflow-hidden rounded-md border border-gray-200">
+                      <div className="flex items-center gap-2 border-r border-gray-200 bg-gray-50 px-4 text-sm font-medium">
                         <span>IN</span>
                         <span>+91</span>
                       </div>
+
                       <input
                         id="phone"
                         type="tel"
                         inputMode="numeric"
-                        maxLength="10"
+                        maxLength={10}
                         placeholder="Enter 10 digit number"
+                        className="w-full px-4 text-sm outline-none"
                       />
                     </div>
                   </div>
                 ) : (
-                  <div className="account-field">
+                  <div>
                     <label
-                      htmlFor="email">
-                      Email address
+                      htmlFor="email"
+                      className="mb-2 block text-sm font-medium text-black"
+                    >
+                      Email Address
                     </label>
+
                     <input
                       id="email"
                       type="email"
                       placeholder="you@example.com"
+                      className="h-12 w-full rounded-md border border-gray-200 px-4 text-sm outline-none focus:border-black"
                     />
                   </div>
                 )}
 
                 <button
                   type="submit"
-                  className="account-primary-btn">
+                  className="flex h-12 w-full items-center justify-center rounded-md bg-black text-sm font-medium text-white transition-all duration-300 hover:opacity-90"
+                >
                   {isPhone ? "Request OTP" : "Continue With Email"}
                 </button>
               </form>
             ) : (
-              <form onSubmit={handleSubmit} className="account-form">
+              <form className="space-y-6">
                 <button
                   type="button"
                   onClick={() => setStep("details")}
-                  className="account-back-btn">
+                  className="flex items-center gap-2 text-sm font-medium text-black"
+                >
                   <ArrowLeft size={16} />
-                  Change {isPhone ? "phone number" : "email"}
+                  Change {isPhone ? "Phone Number" : "Email"}
                 </button>
 
-                <div className="account-field">
+                <div>
                   <label
-                    htmlFor="otp">
-                    Verification code
+                    htmlFor="otp"
+                    className="mb-2 block text-sm font-medium text-black"
+                  >
+                    Verification Code
                   </label>
+
                   <input
                     id="otp"
                     type="text"
                     inputMode="numeric"
-                    maxLength="6"
-                    placeholder="Enter code"
-                    className="account-code-input"
+                    maxLength={6}
+                    placeholder="Enter OTP"
+                    className="h-12 w-full rounded-md border border-gray-200 px-4 text-sm outline-none focus:border-black"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="account-primary-btn">
+                  className="flex h-12 w-full items-center justify-center rounded-md bg-black text-sm font-medium text-white transition-all duration-300 hover:opacity-90"
+                >
                   Verify & Continue
                 </button>
               </form>
             )}
 
-            <div className="account-divider">
-              <span>or</span>
+            {/* DIVIDER */}
+            <div className="relative my-8 flex items-center justify-center">
+              <div className="h-px w-full bg-gray-200" />
+
+              <span className="absolute bg-white px-4 text-sm text-gray-500">
+                or
+              </span>
             </div>
 
+            {/* SWITCH METHOD */}
             <button
               type="button"
               onClick={() => switchMethod(isPhone ? "email" : "phone")}
-              className="account-secondary-btn">
+              className="flex h-12 w-full items-center justify-center gap-2 rounded-md border border-gray-200 text-sm font-medium text-black transition-all duration-300 hover:border-black"
+            >
               {isPhone ? <Mail size={20} /> : <Phone size={20} />}
-              Continue With {isPhone ? "Email" : "Phone Number"}
+              Continue With {isPhone ? "Email" : "Phone"}
             </button>
           </div>
         </div>

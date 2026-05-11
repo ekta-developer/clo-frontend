@@ -14,7 +14,7 @@ const ShopByTrends = () => {
     <section className="mt-10 w-full bg-white">
       {/* HEADING */}
       <div className="px-4 text-center">
-        <h2 className="text-4xl font-bold text-black md:text-4xl">
+        <h2 className="text-4xl font-bold text-black md:text-4xl uppercase tracking-wider">
           Shop by Trends
         </h2>
       </div>
