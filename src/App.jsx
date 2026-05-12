@@ -26,7 +26,7 @@ const PageFrame = () => {
     <>
       <Header />
 
-      <main className={!isHomePage ? "pt-30" : ""}>
+      <main className={!isHomePage ? "pt-20" : ""}>
         <Outlet />
       </main>
 
@@ -51,7 +51,7 @@ function App() {
 
           <Route path="contact" element={<Contact />} />
           <Route path="account/login" element={<Account />} />
-          <Route path="product-detail" element={<ProductDetail />} />
+          <Route path="product-detail/:slug" element={<ProductDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>
