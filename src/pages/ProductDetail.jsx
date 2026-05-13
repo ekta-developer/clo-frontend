@@ -10,14 +10,23 @@ import {
   RotateCcw,
   Truck,
 } from "lucide-react";
-
 import { Products } from "../data/Products.js";
 import RelatedProducts from "../components/GetMore/RelatedProducts";
+import { useCart } from "../context/CartContext.jsx";
+import { useNavigate } from "react-router-dom";
+import { useProducts } from "../context/ProductContext.jsx";
 
 const ProductDetail = () => {
   const { slug } = useParams();
-
   const product = Products.find((item) => item.slug === slug);
+
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
+
+  const [selectedColor, setSelectedColor] = useState(product.colors[0].name);
+
+  const { addToCart } = useProducts();
+
+  const navigate = useNavigate();
 
   const [selectedImage, setSelectedImage] = useState(product?.images?.[0]);
 
@@ -42,10 +51,8 @@ const ProductDetail = () => {
 
           {/* Main Section */}
           <div className="grid lg:grid-cols-2 gap-14 mt-6">
-
             {/* LEFT */}
             <div className="flex gap-5">
-
               {/* Side Images */}
               <div className="flex flex-col gap-4">
                 {product.images.map((img, index) => (
@@ -79,7 +86,6 @@ const ProductDetail = () => {
 
             {/* RIGHT */}
             <div className="flex flex-col">
-
               <p className="uppercase tracking-[4px] text-xs text-[#b19777] mb-3">
                 {product.category}
               </p>
@@ -131,17 +137,13 @@ const ProductDetail = () => {
 
                 <div className="flex items-center border border-[#d7c8b8] w-fit rounded-xl overflow-hidden">
                   <button
-                    onClick={() =>
-                      setQuantity(quantity > 1 ? quantity - 1 : 1)
-                    }
+                    onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}
                     className="w-14 h-14 flex items-center justify-center hover:bg-[#eee4d8]"
                   >
                     <Minus size={18} />
                   </button>
 
-                  <span className="w-14 text-center text-lg">
-                    {quantity}
-                  </span>
+                  <span className="w-14 text-center text-lg">{quantity}</span>
 
                   <button
                     onClick={() => setQuantity(quantity + 1)}
@@ -154,10 +156,15 @@ const ProductDetail = () => {
 
               {/* Buttons */}
               <div className="flex gap-4 mb-10">
-                <button className="flex-1 bg-[#eee4d8] text-[#3e3124] py-5 rounded-2xl uppercase tracking-[3px] font-medium hover:bg-[#e2d5c7] transition">
+                <button
+                  onClick={() => {
+                    (addToCart(product, selectedSize, selectedColor, quantity),
+                      navigate("/cart"));
+                  }}
+                  className="flex-1 bg-[#eee4d8] text-[#3e3124] py-5 rounded-2xl uppercase tracking-[3px] font-medium hover:bg-[#e2d5c7] transition"
+                >
                   Add To Bag
                 </button>
-
                 <button className="w-16 rounded-2xl border border-[#d7c8b8] flex items-center justify-center hover:bg-[#eee4d8] transition">
                   <Heart size={22} />
                 </button>
@@ -165,7 +172,6 @@ const ProductDetail = () => {
 
               {/* Features */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-y border-[#ddd2c6] py-8">
-
                 <div className="text-center">
                   <Truck className="mx-auto mb-3 text-[#b19777]" size={24} />
                   <p className="uppercase text-xs tracking-[3px] text-[#3e3124]">
@@ -200,11 +206,8 @@ const ProductDetail = () => {
                   Fabric
                 </h3>
 
-                <p className="text-gray-600">
-                  {product.fabric}
-                </p>
+                <p className="text-gray-600">{product.fabric}</p>
               </div>
-
             </div>
           </div>
         </div>

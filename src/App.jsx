@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   BrowserRouter,
   Routes,
@@ -15,8 +15,12 @@ import Account from "./pages/Account";
 import Contact from "./pages/Contact";
 import Wishlist from "./pages/Wishlist";
 import SideMenu from "./components/Homepage/SideMenu";
-import Searchbar from "./components/Searchbar";
-import Cart from "./components/Cart";
+import Searchbar from "./components/NavbarSearch";
+import Cart from "./pages/Cart";
+import ScrollToTop from "./components/reusable/ScrollToTop";
+import CheckoutPage from "./pages/Checkout";
+import PaymentPage from "./pages/PaymentPage";
+import Confirmation from "./pages/Confirmation";
 
 const PageFrame = () => {
   const location = useLocation();
@@ -37,21 +41,20 @@ const PageFrame = () => {
 
 function App() {
   return (
-  
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<PageFrame />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="sidemenu" element={<SideMenu />} />
-          <Route path="search" element={<Searchbar />} />
           <Route path="cart" element={<Cart />} />
-
           <Route path="wishlist" element={<Wishlist />} />
-
           <Route path="contact" element={<Contact />} />
           <Route path="account/login" element={<Account />} />
           <Route path="product-detail/:slug" element={<ProductDetail />} />
+          <Route path="checkout" element={<CheckoutPage />} />
+          <Route path="payment" element={<PaymentPage />} />
+          <Route path="order-confirmed" element={<Confirmation />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -78,7 +78,7 @@ h2 {
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 45px;
   letter-spacing: -1.68px;
   margin: 32px 0;
   @media (max-width: 1024px) {
@@ -87,7 +87,7 @@ h1 {
   }
 }
 h2 {
-  font-size: 24px;
+  font-size: 18px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
@@ -108,9 +108,18 @@ code,
 }
 
 code {
-  font-size: 15px;
+  font-size: 9px;
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
 }
 
+/* Hide Scrollbar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

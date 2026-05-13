@@ -35,12 +35,12 @@ const CategorySection = () => {
         </h2>
       </div>
 
-      <div className="mx-auto max-w-[1650px] px-3 sm:px-6">
+      <div className="mx-auto max-w-412.5 px-3 sm:px-6">
         <div className="grid grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-6">
           {categories.map((item) => (
             <article
               key={item.title}
-              className="group relative aspect-[3/4] min-h-[240px] overflow-hidden bg-gray-100"
+              className="group relative aspect-3/4 min-h-60 overflow-hidden bg-gray-100"
             >
               <img
                 src={item.image}
@@ -48,7 +48,7 @@ const CategorySection = () => {
                 loading="lazy"
                 className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent transition duration-300 group-hover:from-black/75" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/65 via-black/15 to-transparent transition duration-300 group-hover:from-black/75" />
               <div className="absolute bottom-5 left-0 z-10 w-full px-3 text-center">
                 <h3 className="text-xl font-extrabold uppercase leading-tight text-white drop-shadow-md sm:text-2xl md:text-3xl">
                   {item.title}

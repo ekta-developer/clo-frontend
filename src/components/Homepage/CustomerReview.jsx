@@ -88,7 +88,7 @@ const CustomerReview = () => {
               <div
                 key={index}
                 className="min-w-full sm:min-w-[50%] lg:min-w-[25%] px-3">
-                <div className="bg-gray-100 rounded-2xl shadow-lg p-8 min-h-50 flex flex-col justify-center text-center">
+                <div className="bg-[#f7f2eb] rounded-2xl shadow-lg p-8 min-h-50 flex flex-col justify-center text-center">
                   {/* STARS */}
                   <div className="flex justify-center gap-1 mb-5">
                     {[1, 2, 3, 4, 5].map((star) => (

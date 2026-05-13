@@ -20,7 +20,7 @@ const ShopNow = () => {
   ];
 
   return (
-    <section className="w-full bg-[#f3f3f3] py-14 md:py-24 overflow-hidden">
+    <section className="w-full bg-[#f7f2eb] py-14 md:py-24 overflow-hidden">
       <div className="max-w-3xl mx-auto text-center px-6 mb-12 md:mb-16">
         <h2 className="text-4xl md:text-6xl font-bold uppercase mb-6">
           Discover Your Style
@@ -37,10 +37,11 @@ const ShopNow = () => {
       <Swiper
         modules={[Autoplay, FreeMode]}
         spaceBetween={6}
-        speed={800}               // ✅ silky slide transition
-        grabCursor={true}         // ✅ grab cursor on desktop
+        speed={800} // ✅ silky slide transition
+        grabCursor={true} // ✅ grab cursor on desktop
         loop={true}
-        freeMode={{               // ✅ momentum-based free scrolling
+        freeMode={{
+          // ✅ momentum-based free scrolling
           enabled: true,
           momentum: true,
           momentumRatio: 0.6,
@@ -49,11 +50,11 @@ const ShopNow = () => {
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
-          pauseOnMouseEnter: true, 
+          pauseOnMouseEnter: true,
         }}
         breakpoints={{
-          0:    { slidesPerView: 1.2 },   
-          640:  { slidesPerView: 2.2 },
+          0: { slidesPerView: 1.2 },
+          640: { slidesPerView: 2.2 },
           1024: { slidesPerView: 5.2 },
         }}
       >
