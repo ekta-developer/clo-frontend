@@ -6,18 +6,12 @@ import img3 from "../../assets/banner3.webp";
 const banners = [
   {
     image: img1,
-    // title: "Summer",
-    // subtitle: "A Curated Collection",
   },
   {
     image: img2,
-    // title: "Gerua",
-    // subtitle: "New Fashion Trends",
   },
   {
     image: img3,
-    // title: "Luxury",
-    // subtitle: "Elegant Styles For You",
   },
 ];
 
@@ -28,48 +22,40 @@ const HeroSection = () => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === banners.length - 1 ? 0 : prev + 1));
     }, 4000);
-
     return () => clearInterval(interval);
   }, []);
+
   return (
     <>
       {/* HERO SLIDER */}
-
-      <section className="relative mt-8 h-[calc(100vh-2rem)] w-full overflow-hidden">
+      <section className="relative mt-4 sm:mt-6 md:mt-8 h-[50vh] xs:h-[55vh] sm:h-[65vh] md:h-[75vh] lg:h-[85vh] xl:h-[calc(100vh-2rem)] w-full overflow-hidden">
         {banners.map((banner, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-all duration-1000 overflow-hidden ${
+            className={`absolute inset-0 overflow-hidden transition-all duration-1000 ${
               currentSlide === index
-                ? "opacity-100 scale-100 z-10"
-                : "opacity-0 scale-100 z-0"
+                ? "z-10 opacity-100 scale-100"
+                : "z-0 opacity-0 scale-100"
             }`}>
             {/* IMAGE */}
             <img
               src={banner.image}
-              alt=""
-              className="w-full h-full object-cover"
+              alt={banner.title}
+              className="h-full w-full object-cover object-center"
             />
-
             {/* CONTENT */}
-            <div className="absolute inset-0 flex items-center justify-center z-20">
-              <div className="text-center text-white px-4">
-                <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light mb-6">
+            <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/10">
+              <div className="px-4 text-center text-white sm:px-6 md:px-8">
+                <h2 className="mb-2 text-2xl font-light leading-tight xs:text-3xl sm:text-5xl md:mb-4 md:text-6xl lg:mb-6 lg:text-7xl xl:text-8xl">
                   {banner.title}
                 </h2>
-
-                <p className="uppercase tracking-[3px] md:tracking-[5px] text-xs sm:text-sm md:text-base mb-8">
+                <p className="mb-4 text-[9px] uppercase tracking-[1.5px] xs:text-[10px] xs:tracking-[2px] sm:text-xs sm:tracking-[3px] md:mb-6 md:text-sm md:tracking-[5px] lg:mb-8 lg:text-base">
                   {banner.subtitle}
                 </p>
-
-                {/* <button className="border border-white px-6 py-3 md:px-8 uppercase tracking-widest hover:bg-white hover:text-black transition duration-300">
-                  Explore
-                </button> */}
               </div>
             </div>
           </div>
         ))}
-
       </section>
     </>
   );
