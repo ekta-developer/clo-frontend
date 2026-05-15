@@ -1,4 +1,3 @@
-import React from "react";
 import img from "../../assets/banner1.webp";
 const DenimSection = () => {
   return (

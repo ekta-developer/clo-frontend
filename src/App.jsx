@@ -1,4 +1,3 @@
-import React from "react";
 import {
   BrowserRouter,
   Routes,
@@ -14,13 +13,15 @@ import ProductDetail from "./pages/ProductDetail";
 import Account from "./pages/Account";
 import Contact from "./pages/Contact";
 import Wishlist from "./pages/Wishlist";
-import SideMenu from "./components/Homepage/SideMenu";
-import Searchbar from "./components/NavbarSearch";
 import Cart from "./pages/Cart";
 import ScrollToTop from "./components/reusable/ScrollToTop";
 import CheckoutPage from "./pages/Checkout";
 import PaymentPage from "./pages/PaymentPage";
 import Confirmation from "./pages/Confirmation";
+import FAQ from "./components/FAQ";
+import TermsandConditions from "./components/TermsandConditions";
+import TrackOrder from "./components/TrackOrder";
+import AllCategory from "./components/Homepage/AllCategory";
 
 const PageFrame = () => {
   const location = useLocation();
@@ -55,6 +56,10 @@ function App() {
           <Route path="checkout" element={<CheckoutPage />} />
           <Route path="payment" element={<PaymentPage />} />
           <Route path="order-confirmed" element={<Confirmation />} />
+          <Route path="FAQs" element={<FAQ />} />
+          <Route path="terms-condition" element={<TermsandConditions />} />
+          <Route path="track-order" element={<TrackOrder />} />
+          <Route path="all-categories" element={<AllCategory />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { Products } from "../data/Products.js";
 import RelatedProducts from "../components/GetMore/RelatedProducts";
-import { useCart } from "../context/CartContext.jsx";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../context/ProductContext.jsx";
 
@@ -20,9 +19,9 @@ const ProductDetail = () => {
   const { slug } = useParams();
   const product = Products.find((item) => item.slug === slug);
 
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
+  const [selectedSize] = useState(product.sizes[0]);
 
-  const [selectedColor, setSelectedColor] = useState(product.colors[0].name);
+  const [selectedColor] = useState(product.colors[0].name);
 
   const { addToCart } = useProducts();
 

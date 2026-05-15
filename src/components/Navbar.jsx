@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   Heart,
   Menu,
-  Search,
   ShoppingBag,
   User,
   X,
@@ -27,7 +26,6 @@ const menuItems = [
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);

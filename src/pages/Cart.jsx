@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useProducts } from "../context/ProductContext";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -9,8 +8,6 @@ const Cart = () => {
 
   const price = 6499;
   const total = price * quantity;
-  const { cartItems, removeFromCart, updateQuantity, cartTotal } =
-    useProducts();
   return (
     <div className="min-h-screen bg-[#f7f4ef] px-4 md:px-10 lg:px-20 py-10">
       {/* Heading */}

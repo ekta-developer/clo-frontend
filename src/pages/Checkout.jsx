@@ -1,10 +1,7 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useProducts } from "../context/ProductContext";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
-  const { cartItems, cartTotal } = useProducts();
   return (
     <div className="min-h-screen bg-[#f7f4ef] px-4 md:px-10 lg:px-20 py-10 text-[#2c1f1f]">
       {/* Header */}

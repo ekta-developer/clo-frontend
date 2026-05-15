@@ -1,4 +1,3 @@
-import React from "react";
 import CategorySection from "../components/Homepage/CategorySection";
 import CustomerReview from "../components/Homepage/CustomerReview";
 import DenimSection from "../components/Homepage/DenimSection";
