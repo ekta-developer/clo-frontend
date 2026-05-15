@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
@@ -70,14 +70,16 @@ const CustomerReview = () => {
         {/* LEFT BUTTON */}
         <button
           onClick={scrollPrev}
-          className="absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition">
+          className="absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition"
+        >
           <ChevronLeft size={22} />
         </button>
 
         {/* RIGHT BUTTON */}
         <button
           onClick={scrollNext}
-          className="absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition">
+          className="absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition"
+        >
           <ChevronRight size={22} />
         </button>
 
@@ -87,10 +89,11 @@ const CustomerReview = () => {
             {reviews.map((item, index) => (
               <div
                 key={index}
-                className="min-w-full sm:min-w-[50%] lg:min-w-[25%] px-3">
+                className="min-w-full sm:min-w-[50%] lg:min-w-[25%] p-4"
+              >
                 <div className="bg-[#f7f2eb] rounded-2xl shadow-lg p-8 min-h-50 flex flex-col justify-center text-center">
                   {/* STARS */}
-                  <div className="flex justify-center gap-1 mb-5">
+                  <div className="flex justify-center gap-1 mb-5  ">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star
                         key={star}

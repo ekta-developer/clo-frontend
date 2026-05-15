@@ -10,8 +10,11 @@ import img44 from "../../assets/img44.webp";
 import img55 from "../../assets/img55.webp";
 import img77 from "../../assets/img77.webp";
 import img88 from "../../assets/img88.webp";
+import { useNavigate } from "react-router-dom";
 
 const CategorySection = () => {
+  const Navigate = useNavigate();
+
   const categories = [
     { title: "Suits", image: suit },
     { title: "New Arrivals", image: newArrivals },
@@ -36,12 +39,13 @@ const CategorySection = () => {
       </div>
 
       <div className="mx-auto max-w-412.5 px-3 sm:px-6">
-        <div className="grid grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-6">
+        <div
+          onClick={() => Navigate("/all-categories")}
+          className="grid grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-6">
           {categories.map((item) => (
             <article
               key={item.title}
-              className="group relative aspect-3/4 min-h-60 overflow-hidden bg-gray-100"
-            >
+              className="group relative aspect-3/4 min-h-60 overflow-hidden bg-gray-100">
               <img
                 src={item.image}
                 alt={item.title}
