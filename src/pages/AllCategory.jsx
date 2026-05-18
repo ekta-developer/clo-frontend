@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Heart } from "lucide-react";
 
-import kurtaSet from "../../assets/kurtaSet.jpg";
-import Allsaree from "../../assets/allsaree.jpg";
-import img from "../../assets/img.jpg";
-import anarkalidress from "../../assets/anarkalidress.jpg";
-import bridal from "../../assets/bridal.jpg";
+import kurtaSet from "../assets/kurtaSet.jpg";
+import Allsaree from "../assets/Allsaree.jpg";
+import img from "../assets/img.jpg";
+import anarkalidress from "../assets/anarkalidress.jpg";
+import bridal from "../assets/bridal.jpg";
 
 const products = [
   {

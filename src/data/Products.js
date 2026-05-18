@@ -35,7 +35,6 @@ export const Products = [
 
     rating: 4.8,
   },
-
   {
     id: 2,
     slug: "red-silk-saree",

@@ -21,7 +21,7 @@ import Confirmation from "./pages/Confirmation";
 import FAQ from "./components/FAQ";
 import TermsandConditions from "./components/TermsandConditions";
 import TrackOrder from "./components/TrackOrder";
-import AllCategory from "./components/Homepage/AllCategory";
+import AllCategory from "./pages/AllCategory";
 
 const PageFrame = () => {
   const location = useLocation();
@@ -30,11 +30,9 @@ const PageFrame = () => {
   return (
     <>
       <Header />
-
       <main className={!isHomePage ? "pt-20" : ""}>
         <Outlet />
       </main>
-
       <Footer />
     </>
   );
