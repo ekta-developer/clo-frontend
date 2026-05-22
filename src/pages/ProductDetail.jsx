@@ -14,6 +14,7 @@ import { Products } from "../data/Products.js";
 import RelatedProducts from "../components/GetMore/RelatedProducts";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../context/ProductContext.jsx";
+import Breadcrumb from "../components/common/Breadcrumb.jsx";
 
 const ProductDetail = () => {
   const { slug } = useParams();
@@ -44,9 +45,13 @@ const ProductDetail = () => {
       <div className="bg-[#f7f2eb] min-h-screen px-4 md:px-10 pt-10 pb-4">
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
-          <p className="text-xs tracking-[3px] uppercase text-gray-500 mb-24">
-            Home / Shop / {product.title}
-          </p>
+          <Breadcrumb
+            items={[
+              { label: "Home", path: "/" },
+              { label: "Product Detail", path: "/product-detail" },
+              { label: product.title },
+            ]}
+          />
 
           {/* Main Section */}
           <div className="grid lg:grid-cols-2 gap-14 mt-6">

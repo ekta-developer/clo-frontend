@@ -8,15 +8,16 @@ import ShopNow from "../components/Homepage/ShopNow";
 const Home = () => {
   return (
     <>
-    
       <HeroSection />
       <ShopByTrends />
       <CategorySection />
-      <ShopNow />
-      <CustomerReview />
+      {/* Women's Collection */}
+      <ShopNow type="women" />
+      {/* Men's Collection */}
+      <ShopNow type="men" /> <CustomerReview />
       <DenimSection />
     </>
-  )
+  );
 };
 
 export default Home;

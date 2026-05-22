@@ -1,16 +1,9 @@
 import { useEffect, useState } from "react";
-import {
-  Heart,
-  Menu,
-  ShoppingBag,
-  User,
-  X,
-  ChevronRight,
-} from "lucide-react";
+import { Heart, Menu, ShoppingBag, User, X, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Topbar from "./Topbar";
 import NavbarSearch from "./NavbarSearch";
-
+import logo from "../assets/nobgLOGO.png";
 const menuItems = [
   "Sale",
   "Spring Summer 2026",
@@ -61,7 +54,7 @@ const Header = () => {
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-18 items-center justify-between">
             {/* Left Side */}
             <div className="flex items-center gap-6">
               {/* Menu Button */}
@@ -78,12 +71,12 @@ const Header = () => {
             </div>
 
             {/* Logo */}
-            <Link
-              to="/"
-              className="text-3xl font-bold tracking-wide md:text-4xl"
-              style={{ fontFamily: "serif" }}
-            >
-              CLO
+            <Link to="/" className="flex items-center justify-center">
+              <img
+                src={logo}
+                alt="Logo"
+                className="h-16 w-auto object-contain md:h-24 lg:h-28"
+              />
             </Link>
 
             {/* Right Side */}
